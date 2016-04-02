@@ -6,8 +6,14 @@
  */
 
 export function max(a, b){
-    // YOUR CODE HERE
+  if(a > b) {
+    return a;
+  }
+  else {
+    return b;
+  }
 }
+
 
 /**
  * PART 1
@@ -17,7 +23,15 @@ export function max(a, b){
  */
 
 export function maxOfThree(a, b, c){
-    // YOUR CODE HERE
+  if(a > b && a > c) {
+    return a;
+  }
+  else if (b > a && b > c) {
+    return b;
+  }
+  else {
+    return c;
+  }
 }
 
 /**
@@ -28,7 +42,14 @@ export function maxOfThree(a, b, c){
  */
 
 export function isVowel(char){
-    // YOUR CODE HERE
+  var vowels = 'aeiou'.split("");
+
+  if(vowels.indexOf(char.toLowerCase()) !== -1) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 /**
@@ -44,7 +65,20 @@ export function isVowel(char){
  */
 
 export function rovarspraket(input) {
-    // YOUR CODE HERE
+  let str = [];
+
+  input.split("").forEach((letter) => {
+
+    if(isVowel(letter) || letter === ' ') {
+      str.push(letter);
+    }
+    else {
+      str.push(`${letter}o${letter}`);
+    }
+
+  });
+
+  return str.join("");
 }
 
 /**
@@ -57,7 +91,7 @@ export function rovarspraket(input) {
  */
 
 export function reverse(str){
-    // YOUR CODE HERE
+  return str.split("").reverse().join("");
 }
 
 /**
@@ -70,7 +104,15 @@ export function reverse(str){
  */
 
 export function findLongestWord(sentence){
-    // YOUR CODE HERE
+  let longestWord = "";
+
+  sentence.split(" ").forEach((word) => {
+    if(word.length > longestWord.length) {
+      longestWord = word;
+    }
+  })
+
+  return longestWord;
 }
 
 /**
@@ -82,5 +124,10 @@ export function findLongestWord(sentence){
  */
 
  export function isPalindrome(word) {
-   // YOUR CODE HERE
+  if(word === word.split("").reverse().join("")) {
+    return true;
+  }
+  else {
+    return false;
+  }
  }
